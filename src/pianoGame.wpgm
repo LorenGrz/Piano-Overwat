@@ -1,0 +1,14 @@
+import config.*
+import teclas.*
+import wollok.game.*
+
+program pianoGame {
+	game.title("Piano")
+	game.height(16)
+	game.width(16)
+	game.boardGround("fondo2.jpg")
+	
+	config.iniciar()
+	
+	game.start()
+}
