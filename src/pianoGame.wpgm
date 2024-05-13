@@ -6,7 +6,7 @@ program pianoGame {
 	game.title("Piano")
 	game.height(14)
 	game.width(12)
-	game.boardGround("fondo.jpg")
+	game.boardGround("Fondo-Blanco.jpg")
 	
 	config.iniciar()
 	

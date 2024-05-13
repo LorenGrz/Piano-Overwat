@@ -5,7 +5,7 @@ class Tecla {
 	var property position = game.at(self.random(),12)
 	var property esTocada = false
 	method image(){
-		/*if(esTocada()) return "Tecla-Gris.jpg" else*/return "Tecla.jpg" 
+		if(self.esTocada()) return "Tecla-Gris.jpg" else return "Tecla.jpg" 
 	} 
 	
 	method random(){
@@ -19,12 +19,16 @@ class Tecla {
 	
 	method cae(){
 		position = position.down(1)
+		if(position.y() == -1 and !self.esTocada()){
+			combo.reinicioCombo()
+		}
 		if(position.y() == -1){
 			self.desaparecer()
-		}
+		}	
 	}
+	
 	method aparecer(){
-		game.onTick(250-config.velocidad()*2,"moverTecla"+self.toString(),{=> self.cae()})
+		game.onTick(250-(velocidad.velocidadNum()*2),"moverTecla"+self.toString(),{=> self.cae()})
 	}
 	method desaparecer(){
 		game.removeTickEvent("moverTecla"+self.toString())
@@ -35,11 +39,12 @@ class Tecla {
 class Boton{
 	var property position = game.at(0,0)
 	method image(){
-		return "Tecla.jpg" //CAMBIAR IMAGEN Y COLOCAR LA DE LOS BOTONES
+		return "BOTON2.jpg" //CAMBIAR IMAGEN Y COLOCAR LA DE LOS BOTONES
 	} 
 	method tocar(tecla){
+		//Temporal
+		combo.comboNum(combo.comboNum()+1)
 		tecla.esTocada(true)
-		game.removeVisual(tecla)//Temporal
 	}
 }
 
