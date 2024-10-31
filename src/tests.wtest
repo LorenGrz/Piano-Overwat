@@ -1,6 +1,58 @@
-
-test "testX" {
-
-	assert.that(true)
-
+import wollok.game.*
+import config.*
+import teclas.*
+ 
+describe "test ajustes" {
+	
+	method initialize() {
+		game.clear()
+	}
+	
+	test "test vidas" {
+		config.configurarVidas()
+		assert.equals(6, config.vidas().size())
+		config.matarVida()
+		assert.equals(6, config.vidas().size())
+		//no cambia la cantidad, cambia el 
+		// estado de las vidas
+		
+		assert.equals(5, config.aux().size())
+		config.matarVida()
+		config.matarVida()
+		assert.equals(3, config.aux().size())	
+	}
+	
+	test "test combo" {
+		config.configurarVidas()
+		combo.comboNum(1004)
+		assert.equals(1004, combo.comboNum())
+		
+		combo.aumentoCombo()
+		assert.equals(1005, combo.comboNum())
+		assert.equals(6, config.vidas().size())
+		assert.equals(0, config.aux().size())
+		combo.reinicioCombo()
+		assert.equals(0, combo.comboNum()) //el combo vuelve a 0
+		assert.equals(5, config.aux().size()) //pierdo vidas
+		combo.reinicioCombo()	
+		assert.equals(4, config.aux().size())		
+		//combo.reinicioCombo()
+		//
+	}
+	
+	test "velocidad" {
+		assert.equals(600, velocidad.velocidadNum())
+		
+		//no puedo usar velovidad.aumentoVelocidad()
+		
+		//velocidad.aumentoVelocidad()
+		//assert.equals(600, velocidad.velocidadNum())
+	}
+	
+	test "tiempo" {
+		assert.equals(0, tiempo.tiempoNum())
+		tiempo.aumentarTiempo()
+		assert.equals(1, tiempo.tiempoNum())
+	}
+	
 }

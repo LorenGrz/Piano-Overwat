@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
-Automatic-Module-Name: TP_FINAL
+Automatic-Module-Name: WLK
 Bundle-ManifestVersion: 2
-Bundle-Name: TP_FINAL
+Bundle-Name: WLK
 Bundle-Vendor: My Company
 Bundle-Version: 1.0.0.qualifier
-Bundle-SymbolicName: TP_FINAL; singleton:=true
+Bundle-SymbolicName: WLK; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: com.ibm.icu,
  org.eclipse.xtext,
